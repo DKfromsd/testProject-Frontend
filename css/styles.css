@@ -188,50 +188,141 @@ button.selected:hover {
     transform: scale(1.1);
     font-weight: bold;
 }
+/* css/styles.css - 캐러셀 개선 버전 (기존 carousel 부분 통째로 교체) */
+.game-carousel {
+    position: relative;
+    max-width: 900px;
+    margin: 30px auto;
+    overflow: hidden;  /* 리스트만 스크롤, 화살표는 밖 */
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    padding: 25px 80px 25px 80px;  /* 화살표 공간 여유 */
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
 
+.carousel-track {
+    display: flex;
+    justify-content: flex-start;  /* 왼쪽부터 시작 */
+    align-items: center;
+    gap: 25px;
+    padding: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;  /* 내부 스크롤만 */
+    scroll-snap-type: x proximity;  /* 가벼운 snap */
+    scrollbar-width: none;  /* Firefox 숨김 */
+    -ms-overflow-style: none;  /* IE 숨김 */
+    max-height: 80px;  /* 높이 제한 */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none;  /* Chrome 완전 숨김 */
+}
+
+.game-btn {
+    min-width: 220px;
+    padding: 18px 25px;
+    font-size: 19px;
+    font-weight: bold;
+    background: linear-gradient(145deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 15px rgba(76,175,80,0.4);
+    flex-shrink: 0;
+    scroll-snap-align: start;  /* 스크롤 시작점 맞춤 */
+    white-space: nowrap;
+}
+
+.game-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(76,175,80,0.6);
+}
+
+.game-btn.selected {
+    background: linear-gradient(145deg, #388e3c, #2e7d32) !important;
+    transform: scale(1.08) translateY(-4px) !important;
+    box-shadow: 0 0 25px rgba(56,142,60,0.7) !important;
+}
+
+/* 화살표: 항상 최상단 + 리스트 밖 고정 위치 */
 .carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: linear-gradient(145deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
     color: white;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s;
+    z-index: 100;  /* 무조건 최상단! */
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    pointer-events: auto;  /* 클릭 강제 */
 }
 
-.carousel-arrow.left { left: 10px; }
-.carousel-arrow.right { right: 10px; }
+.carousel-arrow:hover:not(.disabled) {
+    background: linear-gradient(145deg, rgba(0,0,0,1), rgba(0,0,0,0.8));
+    transform: translateY(-50%) scale(1.15);
+}
 
+.carousel-arrow.left { left: 20px; }
+.carousel-arrow.right { right: 20px; }
+
+.carousel-arrow.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: translateY(-50%) scale(0.9);
+}
+
+.game-container {
+    display: block !important;
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 0;
+    background: transparent;  /* 게임별 배경 존중 */
+    border-radius: 0;
+    box-shadow: none;         /* 게임 테두리만 */
+    min-height: 600px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .game-carousel { padding: 20px 70px; }
+    .game-btn { min-width: 160px; font-size: 16px; }
+    .carousel-arrow { width: 50px; height: 50px; font-size: 24px; }
+} 
+
+/* 새롭고 멋진 로딩 화면 */
 #loading {
     text-align: center;
-    font-size: 24px;
-    color: #666;
-    margin: 50px;
+    font-size: 28px;
+    color: #4CAF50;
+    margin: 100px auto;
+    padding: 50px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: glow 1.5s infinite alternate;
 }
 
-/* 기존 게임 컨테이너 스타일 유지 (동적으로 삽입되므로 그대로 사용) */
-.game-container {
-    display: block;
-    margin: 20px auto;
-    max-width: 900px;
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 10px 30px rgba(76,175,80,0.3); }
+    to { box-shadow: 0 10px 30px rgba(76,175,80,0.6); }
+}
+/* 게임 컨테이너는 이제 각 게임이 100% 자유롭게! */
+#game-area {
+    min-height: 700px;
     padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-@media (max-width: 768px) {
-    .game-carousel { padding: 15px 50px; }
-    .game-btn { 
-        min-width: 180px; 
-        font-size: 17px; 
-        padding: 15px 20px;
-    }
-    .carousel-arrow { width: 40px; height: 40px; font-size: 22px; }
+    background: transparent; /* 게임이 원하는 배경 사용 */
 }
