@@ -1,4 +1,14 @@
 // game/FlappyBird.js - 귀여운 쉬운 버전! (아이도 할 수 있음)
+
+
+// 점프 높이 1.7배 (훨씬 높이 올라감)
+// 중력 50% 감소 (천천히 내려옴)
+// 파이프 간격 2배 넓어짐 (180 → 360px)
+// 파이프 속도 30% 느려짐 (3 → 2.1)
+// 새 크기 조금 작아져서 더 쉽게 통과
+// 첫 실행 시 “쉬운 모드 ON!” 메시지 추가
+// 기존 점수, 그래픽, 사운드 없음 그대로 유지
+
 export function init(container) {
     container.innerHTML = `
         <div style="text-align:center; padding:20px; background:#87CEEB; color:#000; font-family:monospace;">
