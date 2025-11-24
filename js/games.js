@@ -3,6 +3,10 @@ export const games = {
         "name": "Baseball",
         "file": "../game/Baseball.js"
     },
+    "galagashooter": {
+        "name": "Galaga Shooter",
+        "file": "../game/GalagaShooter.js"
+    },
     "omok": {
         "name": "Omok",
         "file": "../game/Omok.js"
