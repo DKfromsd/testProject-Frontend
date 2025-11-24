@@ -1,4 +1,4 @@
-
+/* styles.css - 네 원본 완벽 복원 + 오목/틱택토 100% 보이게 최종 수정! */
 
 body {
     margin: 0;
@@ -98,7 +98,7 @@ button {
 .carousel-arrow.left { left: 15px; }
 .carousel-arrow.right { right: 15px; }
 
-/* ====================   원본   ==================== */
+/* ==================== 여기부터 네 원본 스타일 완벽 복원 ==================== */
 
 .game-container {
     display: block !important;
@@ -109,7 +109,7 @@ button {
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
     min-height: 620px;
-    text-align: center;          
+    text-align: center;           /* 이게 핵심! */
 }
 
 .grid-container {
@@ -133,47 +133,7 @@ button {
     border: 3px solid #333;
     border-radius: 10px;
 }
-/* 1. 오목 중앙에 있는 작은 검은점  제거 */
-.omok-grid-item::before {
-    display: none !important;
-}
 
-/* 2. X/O 대신  검은돌·흰돌로 완벽 교체 + 텍스트 숨김 */
-.omok-grid-item {
-    font-size: 0 !important;   /* X/O 텍스트 완전히 제거 */
-    position: relative;
-}
-
-/* 검은돌 (playerX 또는 black 클래스일 때) */
-.omok-grid-item.black::after,
-.omok-grid-item.playerX::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 26px;
-    height: 26px;
-    background: black;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
-}
-
-/* 흰돌 (playerO 또는 white 클래스일 때) */
-.omok-grid-item.white::after,
-.omok-grid-item.playerO::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 26px;
-    height: 26px;
-    background: white;
-    border: 2px solid #333;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
-}
 .playerX { color: #d32f2f; }
 .playerO { color: #1976d2; }
 
@@ -239,48 +199,6 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-/* 1. 오목 중앙에 있는 작은 검은점 완전 제거 */
-.omok-grid-item::before {
-    display: none !important;
-}
-
-/* 2. X/O 대신 진짜 검은돌·흰돌로 완벽 교체 + 텍스트 숨김 */
-.omok-grid-item {
-    font-size: 0 !important;   /* X/O 텍스트 완전히 제거 */
-    position: relative;
-}
-
-/* 검은돌 (playerX 또는 black 클래스일 때) */
-.omok-grid-item.black::after,
-.omok-grid-item.playerX::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 26px;
-    height: 26px;
-    background: black;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
-}
-
-/* 흰돌 (playerO 또는 white 클래스일 때) */
-.omok-grid-item.white::after,
-.omok-grid-item.playerO::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 26px;
-    height: 26px;
-    background: white;
-    border: 2px solid #333;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
 }
 
 #game-area {
