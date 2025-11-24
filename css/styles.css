@@ -280,6 +280,20 @@ button.selected:hover {
     transform: translateY(-50%) scale(0.9);
 }
 
+/* 모바일 */
+@media (max-width: 768px) {
+    .game-carousel { padding: 20px 70px; }
+    .game-btn { min-width: 160px; font-size: 16px; }
+    .carousel-arrow { width: 50px; height: 50px; font-size: 24px; }
+} 
+
+
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
 .game-container {
     display: block !important;
     margin: 0 auto;
@@ -290,13 +304,6 @@ button.selected:hover {
     box-shadow: none;         /* 게임 테두리만 */
     min-height: 600px;
 }
-
-/* 모바일 */
-@media (max-width: 768px) {
-    .game-carousel { padding: 20px 70px; }
-    .game-btn { min-width: 160px; font-size: 16px; }
-    .carousel-arrow { width: 50px; height: 50px; font-size: 24px; }
-} 
 
 /* 새롭고 멋진 로딩 화면 */
 #loading {
@@ -309,11 +316,6 @@ button.selected:hover {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     animation: glow 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
 }
 
 @keyframes glow {
