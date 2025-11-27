@@ -23,13 +23,13 @@ export const games = {
         "name": "Space Invaders",
         "file": "../game/SpaceInvaders.js"
     },
+    "tetris": {
+        "name": "Tetris",
+        "file": "../game/Tetris.js"
+    },
     "omok": {
         "name": "Omok",
         "file": "../game/omok.js"
-    },
-    "tetris": {
-        "name": "Tetris",
-        "file": "../game/tetris.js"
     },
     "tictactoe": {
         "name": "Tictactoe",
