@@ -1,7 +1,7 @@
 export const games = {
-    "baseball": {
-        "name": "Baseball",
-        "file": "../game/baseball.js"
+    "dinocatrun": {
+        "name": "Dino Cat Run",
+        "file": "../game/DinoCatRun.js"
     },
     "flappybird": {
         "name": "Flappy Bird",
@@ -11,9 +11,21 @@ export const games = {
         "name": "Galaga Shooter",
         "file": "../game/GalagaShooter.js"
     },
+    "hamsterrun": {
+        "name": "Hamster Run",
+        "file": "../game/HamsterRun.js"
+    },
+    "helixjump": {
+        "name": "Helix Jump",
+        "file": "../game/HelixJump.js"
+    },
     "penguinslide": {
         "name": "Penguin Slide",
         "file": "../game/PenguinSlide.js"
+    },
+    "pianotiles": {
+        "name": "Piano Tiles",
+        "file": "../game/PianoTiles.js"
     },
     "shibadash": {
         "name": "Shiba Dash",
@@ -26,6 +38,10 @@ export const games = {
     "tetris": {
         "name": "Tetris",
         "file": "../game/Tetris.js"
+    },
+    "baseball": {
+        "name": "Baseball",
+        "file": "../game/baseball.js"
     },
     "omok": {
         "name": "Omok",
