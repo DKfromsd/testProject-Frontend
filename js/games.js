@@ -47,6 +47,10 @@ export const games = {
         "name": "Omok",
         "file": "../game/omok.js"
     },
+    "picopark": {
+        "name": "Picopark",
+        "file": "../game/picopark.js"
+    },
     "tictactoe": {
         "name": "Tictactoe",
         "file": "../game/tictactoe.js"
